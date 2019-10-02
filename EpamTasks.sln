@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamTasks", "EpamTasks\EpamTasks.csproj", "{EA384369-C441-4E16-A96C-BE5996E561DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StructsTasks", "StructsTasks\StructsTasks.csproj", "{A2136272-0DE1-4A65-93DB-3F0C00AF4345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA384369-C441-4E16-A96C-BE5996E561DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA384369-C441-4E16-A96C-BE5996E561DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA384369-C441-4E16-A96C-BE5996E561DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA384369-C441-4E16-A96C-BE5996E561DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2136272-0DE1-4A65-93DB-3F0C00AF4345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2136272-0DE1-4A65-93DB-3F0C00AF4345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2136272-0DE1-4A65-93DB-3F0C00AF4345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2136272-0DE1-4A65-93DB-3F0C00AF4345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

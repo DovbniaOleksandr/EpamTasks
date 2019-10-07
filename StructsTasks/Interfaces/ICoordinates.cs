@@ -2,8 +2,8 @@
 {
     internal interface ICoordinates
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        double Perimetr { get; }
+        double X { get; set; }
+        double Y { get; set; }
+        double Perimeter();
     }
 }

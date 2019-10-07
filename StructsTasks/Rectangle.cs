@@ -36,6 +36,6 @@ namespace StructsTasks
         public double X { get; set; }
         public double Y { get; set; }
 
-        public double Perimetr => Width * 2 + Height * 2;
+        public double Perimeter() => Width * 2 + Height * 2;
     }
 }

@@ -55,7 +55,7 @@ namespace StructsTasks
         {
             if (n <= 0)
                 throw new ArgumentException("Value must be positive number");
-            return n > Age ? "{Name} {Surname} older than {n}" : "{Name} {Surname} younger than {n}";
+            return n < Age ? $"{Name} {Surname} older than {n}" : $"{Name} {Surname} younger than {n}";
         }
     }
 }

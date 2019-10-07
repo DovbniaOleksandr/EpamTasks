@@ -17,9 +17,9 @@ namespace StructsTasks
     {
         public static void ShowAllColors(this Colors colors)
         {
-            var ColorsValues = Enum.GetValues(colors.GetType());
-            Array.Sort(ColorsValues);
-            foreach(var color in ColorsValues)
+            var colorsValues = Enum.GetValues(colors.GetType());
+            Array.Sort(colorsValues);
+            foreach(var color in colorsValues)
                 Console.WriteLine((Colors)color);
         }
     }

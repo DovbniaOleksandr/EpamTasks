@@ -4,7 +4,8 @@ namespace StructsTasks
 {
     internal struct Person
     {
-        public Person(string name, string surname, int age) : this()
+        public Person(string name, string surname, int age)
+            : this()
         {
             Name = name;
             Surname = surname;

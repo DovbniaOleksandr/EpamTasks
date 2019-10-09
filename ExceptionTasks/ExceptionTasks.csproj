@@ -1,13 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExceptionTasks\ExceptionTasks.csproj" />
-    <ProjectReference Include="..\StructsTasks\StructsTasks.csproj" />
     <ProjectReference Include="..\UI\UI.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using  StructsTasks;
 using UI;
+using ExceptionTasks;
 
 namespace Examples
 {
@@ -8,8 +9,11 @@ namespace Examples
     {
         static void Main()
         {
-            StructsTasks.Example structsExample = new Example(new ConsoleUserInterface());
+            StructsTasks.Example structsExample = new StructsTasks.Example(new ConsoleUserInterface());
             structsExample.Run();
+            ExceptionTasks.Example exceptionExample = new ExceptionTasks.Example( new ConsoleUserInterface());
+            exceptionExample.Run();
+
         }
     }
 }

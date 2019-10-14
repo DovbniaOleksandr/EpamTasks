@@ -5,13 +5,13 @@ using UI;
 
 namespace ExceptionTasks
 {
-    public class Example
+    public class ExceptionsRunner:IRunner
     {
-        public UserInterface UI { get; set; }
+        private UserInterface _ui;
 
-        public Example(UserInterface ui)
+        public ExceptionsRunner(UserInterface ui)
         {
-            UI = ui;
+            _ui = ui;
         }
 
         public void Run()
@@ -22,7 +22,7 @@ namespace ExceptionTasks
             }
             catch (StackOverflowException e)
             {
-                UI.Write(e.Message);
+                _ui.Write(e.Message);
             }
 
             try
@@ -31,7 +31,7 @@ namespace ExceptionTasks
             }
             catch (IndexOutOfRangeException e)
             {
-                UI.Write(e.Message);
+                _ui.Write(e.Message);
             }
 
             try
@@ -41,12 +41,12 @@ namespace ExceptionTasks
             catch (ArgumentException e)
                 when(e.ParamName == "a")
             {
-                UI.Write(e.Message);
+                _ui.Write(e.Message);
             }
             catch (ArgumentException e)
                 when (e.ParamName == "b")
             {
-                UI.Write(e.Message);
+                _ui.Write(e.Message);
             }
         }
     }

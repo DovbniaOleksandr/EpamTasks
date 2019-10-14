@@ -2,6 +2,7 @@
 using  StructsTasks;
 using UI;
 using ExceptionTasks;
+using IO;
 
 namespace Examples
 {
@@ -9,11 +10,11 @@ namespace Examples
     {
         static void Main()
         {
-            StructsTasks.Example structsExample = new StructsTasks.Example(new ConsoleUserInterface());
-            structsExample.Run();
-            ExceptionTasks.Example exceptionExample = new ExceptionTasks.Example( new ConsoleUserInterface());
-            exceptionExample.Run();
-
+            Runners runners = new Runners();
+            foreach (var runner in runners)
+            {
+                runner.Run();
+            }
         }
     }
 }

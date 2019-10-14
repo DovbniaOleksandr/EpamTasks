@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{53B0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Examples\Examples.csproj", "{8034E8E6-68AE-4F7D-A289-D7B91AF57F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionTasks", "ExceptionTasks\ExceptionTasks.csproj", "{D6A4AB89-8FA7-4CA8-B684-F38052C1062B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionTasks", "ExceptionTasks\ExceptionTasks.csproj", "{D6A4AB89-8FA7-4CA8-B684-F38052C1062B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "IO\IO.csproj", "{3727CA5F-A797-4879-9AA3-AE47B0F66520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D6A4AB89-8FA7-4CA8-B684-F38052C1062B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A4AB89-8FA7-4CA8-B684-F38052C1062B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A4AB89-8FA7-4CA8-B684-F38052C1062B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

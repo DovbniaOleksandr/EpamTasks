@@ -24,7 +24,7 @@ namespace StructsTasks
                 if (value.Length > 0)
                     _name = value;
                 else
-                    throw new ArgumentException();
+                    throw new ArgumentException("Name length must be greater then 0");
             }
         }
 
@@ -36,7 +36,7 @@ namespace StructsTasks
                 if (value.Length > 0)
                     _surname = value;
                 else
-                    throw new ArgumentException();
+                    throw new ArgumentException("Surname length must be greater then 0");
             }
         }
 
@@ -48,7 +48,7 @@ namespace StructsTasks
                 if (value > 0)
                     _age = value;
                 else
-                    throw new ArgumentException();
+                    throw new ArgumentException("Age must be positive number");
             }
         }
         public string OlderThan(int n)

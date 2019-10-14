@@ -14,6 +14,14 @@ namespace Examples
             foreach (var runner in runners)
             {
                 runner.Run();
+                Console.WriteLine();
+                if(!runner.Succeed)
+                    foreach (var ex in runner.Errors)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        runner._ui.Write(ex);
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
             }
         }
     }

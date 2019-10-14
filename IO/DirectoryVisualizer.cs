@@ -18,5 +18,17 @@ namespace IO
             foreach (var subDir in dir.GetDirectories().OrderBy(x => x.Name))
                 GetContentFromDirectory(subDir.FullName, ui, tabs + 1);
         }
+
+        public static void FindTxtFileByPartialName(string path, string filename, UserInterface ui)
+        {
+            if (String.IsNullOrEmpty(filename))
+                throw new ArgumentException("Empty filename");
+            DirectoryInfo dir = new DirectoryInfo(path);
+            FileInfo[] filesInDir = dir.GetFiles("*" + filename + "*.txt");
+            foreach (var file in filesInDir)
+            {
+                ui.Write(file.Name);
+            }
+        }
     }
 }

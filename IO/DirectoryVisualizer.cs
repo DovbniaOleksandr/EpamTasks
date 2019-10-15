@@ -9,8 +9,7 @@ namespace IO
     {
         public static void GetContentFromDirectory(string path, UserInterface ui, int tabs)
         {
-            if (String.IsNullOrEmpty(path))
-                throw new ArgumentException("Empty path");
+            ValidateArguments(path);
             DirectoryInfo dir = new DirectoryInfo(path);
             ui.Write(new String('\t', tabs) + dir.Name + " :");
             foreach (var file in dir.GetFiles().OrderBy(x => x.Name))
@@ -21,14 +20,20 @@ namespace IO
 
         public static void FindTxtFileByPartialName(string path, string filename, UserInterface ui)
         {
-            if (String.IsNullOrEmpty(filename))
-                throw new ArgumentException("Empty filename");
+            ValidateArguments(path);
             DirectoryInfo dir = new DirectoryInfo(path);
             FileInfo[] filesInDir = dir.GetFiles("*" + filename + "*.txt");
             foreach (var file in filesInDir)
             {
                 ui.Write(file.Name);
             }
+        }
+        private static void ValidateArguments(string path)
+        {
+            if (String.IsNullOrEmpty(path))
+                throw new ArgumentException("Empty path");
+            if (!Directory.Exists(path))
+                throw new ArgumentException("Directory doesn't excist");
         }
     }
 }

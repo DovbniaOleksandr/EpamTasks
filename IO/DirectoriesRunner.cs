@@ -46,6 +46,14 @@ namespace IO
             {
                 Errors.Add(e.Message);
             }
+            catch (DirectoryNotFoundException e)
+            {
+                Errors.Add(e.Message);
+            }
+            catch (Exception e)
+            {
+                Errors.Add(e.Message);
+            }
         }
     }
 }

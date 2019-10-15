@@ -15,8 +15,7 @@ namespace Examples
             {
                 runner.Run();
                 Console.WriteLine();
-                if(!runner.Succeed)
-                    foreach (var ex in runner.Errors)
+                foreach (var ex in runner.Errors)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         runner._ui.Write(ex);

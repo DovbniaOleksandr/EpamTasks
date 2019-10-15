@@ -8,7 +8,6 @@ namespace UI
     public interface IRunner
     {
         UserInterface _ui { get; }
-        bool Succeed { get; }
         IList<string> Errors { get;}
         void Run();
     }

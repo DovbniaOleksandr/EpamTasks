@@ -7,13 +7,11 @@ namespace ExceptionTasks
 {
     public class ExceptionsRunner:IRunner
     {
-        public bool Succeed { get; private set; }
         public IList<string> Errors { get; private set; }
 
         public UserInterface _ui { get; private set; }
         public ExceptionsRunner(UserInterface ui)
         {
-            Succeed = false;
             _ui = ui;
             Errors = new List<string>();
         }
@@ -27,12 +25,10 @@ namespace ExceptionTasks
             catch (StackOverflowException e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch (Exception e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
 
             try
@@ -42,12 +38,10 @@ namespace ExceptionTasks
             catch (IndexOutOfRangeException e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch (Exception e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
 
             try
@@ -58,18 +52,15 @@ namespace ExceptionTasks
                 when(e.ParamName == "a")
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch (ArgumentException e)
                 when (e.ParamName == "b")
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch (Exception e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
         }
     }

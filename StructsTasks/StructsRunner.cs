@@ -9,19 +9,15 @@ namespace StructsTasks
     public class StructsRunner:IRunner
     {
         public UserInterface _ui { get; private set; }
-        public bool Succeed { get; private set; }
         public IList<string> Errors { get; private set; }
 
         public StructsRunner(UserInterface ui)
-        {
-            Succeed = false;
-            _ui = ui;
+        {            _ui = ui;
             Errors = new List<string>();
         }
 
         public void Run()
         {
-            Succeed = true;
             GetPersonData(out string name, out string surname, out int age);
             try
             {
@@ -33,12 +29,10 @@ namespace StructsTasks
             catch (ArgumentException e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch (Exception e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             GetRectangleData(out double x,out double y, out double height, out double width);
 
@@ -57,12 +51,10 @@ namespace StructsTasks
             catch (ArgumentException e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch (Exception e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
         }
 

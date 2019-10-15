@@ -10,12 +10,9 @@ namespace IO
     {
         public DirectoriesRunner(UserInterface ui)
         {
-            Succeed = false;
             _ui = ui;
             Errors = new List<string>();
         }
-
-        public bool Succeed { get; private set; }
 
         public IList<string> Errors { get; private set; }
 
@@ -31,17 +28,14 @@ namespace IO
             catch (ArgumentException e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
             catch(DirectoryNotFoundException e)
             {
-                Errors.Add(e.Message);
-                Succeed = false;
+                Errors.Add(e.Message);          
             }
             catch (Exception e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
 
             try
@@ -51,7 +45,6 @@ namespace IO
             catch (ArgumentException e)
             {
                 Errors.Add(e.Message);
-                Succeed = false;
             }
         }
     }

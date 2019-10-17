@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Logger;
 using UI;
 
 namespace ExceptionTasks
 {
     public class ExceptionsRunner:IRunner
     {
-        public IList<string> Errors { get; private set; }
-
+        public ILoggerHelper _logger { get; }
         public UserInterface _ui { get; private set; }
-        public ExceptionsRunner(UserInterface ui)
+        public ExceptionsRunner(UserInterface ui, ILoggerHelper logger)
         {
+            _logger = logger;
             _ui = ui;
-            Errors = new List<string>();
         }
 
         public void Run()
@@ -24,11 +24,11 @@ namespace ExceptionTasks
             }
             catch (StackOverflowException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
 
             try
@@ -37,11 +37,11 @@ namespace ExceptionTasks
             }
             catch (IndexOutOfRangeException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
 
             try
@@ -51,16 +51,16 @@ namespace ExceptionTasks
             catch (ArgumentException e)
                 when(e.ParamName == "a")
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (ArgumentException e)
                 when (e.ParamName == "b")
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
         }
     }

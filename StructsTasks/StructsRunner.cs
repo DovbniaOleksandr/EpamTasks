@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Logger;
 using Microsoft.VisualBasic.CompilerServices;
 using UI;
 
@@ -8,12 +9,13 @@ namespace StructsTasks
 {
     public class StructsRunner:IRunner
     {
+        public ILoggerHelper _logger { get; private set; }
         public UserInterface _ui { get; private set; }
-        public IList<string> Errors { get; private set; }
 
-        public StructsRunner(UserInterface ui)
-        {            _ui = ui;
-            Errors = new List<string>();
+        public StructsRunner(UserInterface ui, ILoggerHelper logger)
+        {
+            _logger = logger;
+            _ui = ui;
         }
 
         public void Run()
@@ -28,11 +30,11 @@ namespace StructsTasks
             }
             catch (ArgumentException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             GetRectangleData(out double x,out double y, out double height, out double width);
 
@@ -50,11 +52,11 @@ namespace StructsTasks
             }
             catch (ArgumentException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logger;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,34 +9,33 @@ namespace IO
 {
     public class DirectoriesRunner:IRunner
     {
-        public DirectoriesRunner(UserInterface ui)
+        public DirectoriesRunner(UserInterface ui, ILoggerHelper logger)
         {
+            _logger = logger;
             _ui = ui;
-            Errors = new List<string>();
         }
 
-        public IList<string> Errors { get; private set; }
+        public ILoggerHelper _logger { get; private set; }
 
         public UserInterface _ui { get; private set; }
 
         public void Run()
         {
-
             try
             {
                 DirectoryVisualizer.GetContentFromDirectory(@"D:\Vikings.(S02).1080p.NewStudio", new ConsoleUserInterface(), 0);
             }
             catch (ArgumentException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch(DirectoryNotFoundException e)
             {
-                Errors.Add(e.Message);          
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
 
             try
@@ -44,15 +44,15 @@ namespace IO
             }
             catch (ArgumentException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (DirectoryNotFoundException e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
             catch (Exception e)
             {
-                Errors.Add(e.Message);
+                _logger.LogException(e);
             }
         }
     }

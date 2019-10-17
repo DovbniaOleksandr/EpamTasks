@@ -3,6 +3,7 @@ using  StructsTasks;
 using UI;
 using ExceptionTasks;
 using IO;
+using Logger;
 
 namespace Examples
 {
@@ -10,18 +11,18 @@ namespace Examples
     {
         static void Main()
         {
-            Runners runners = new Runners();
-            foreach (var runner in runners)
-            {
-                runner.Run();
-                Console.WriteLine();
-                foreach (var ex in runner.Errors)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        runner._ui.Write(ex);
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-            }
+            //Runners runners = new Runners();
+            //foreach (var runner in runners)
+            //{
+            //    runner.Run();
+            //    Console.WriteLine();
+            //    foreach (var ex in runner.Errors)
+            //        {
+            //            Console.ForegroundColor = ConsoleColor.Red;
+            //            runner._ui.Write(ex);
+            //            Console.ForegroundColor = ConsoleColor.White;
+            //        }
+            //}
         }
     }
 }

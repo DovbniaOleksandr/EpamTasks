@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Examples\Exampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionTasks", "ExceptionTasks\ExceptionTasks.csproj", "{D6A4AB89-8FA7-4CA8-B684-F38052C1062B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "IO\IO.csproj", "{3727CA5F-A797-4879-9AA3-AE47B0F66520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "IO\IO.csproj", "{3727CA5F-A797-4879-9AA3-AE47B0F66520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3727CA5F-A797-4879-9AA3-AE47B0F66520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

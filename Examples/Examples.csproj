@@ -9,6 +9,7 @@
     <ProjectReference Include="..\ExceptionTasks\ExceptionTasks.csproj" />
     <ProjectReference Include="..\IO\IO.csproj" />
     <ProjectReference Include="..\Logger\Logger.csproj" />
+    <ProjectReference Include="..\SerializationTasks\SerializationTasks.csproj" />
     <ProjectReference Include="..\StructsTasks\StructsTasks.csproj" />
     <ProjectReference Include="..\UI\UI.csproj" />
   </ItemGroup>

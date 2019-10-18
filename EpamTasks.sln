@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionTasks", "Exception
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "IO\IO.csproj", "{3727CA5F-A797-4879-9AA3-AE47B0F66520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationTasks", "SerializationTasks\SerializationTasks.csproj", "{3A2653D5-50F5-4905-9224-73F67C67373B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2653D5-50F5-4905-9224-73F67C67373B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2653D5-50F5-4905-9224-73F67C67373B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2653D5-50F5-4905-9224-73F67C67373B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2653D5-50F5-4905-9224-73F67C67373B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

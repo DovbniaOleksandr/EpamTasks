@@ -3,19 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using NLog;
 using UI;
 
 namespace IO
 {
     public class DirectoriesRunner:IRunner
     {
-        public DirectoriesRunner(UserInterface ui, ILoggerHelper logger)
+        public DirectoriesRunner(UserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
         }
 
-        public ILoggerHelper _logger { get; private set; }
+        public ILogger _logger { get; private set; }
 
         public UserInterface _ui { get; private set; }
 
@@ -27,15 +28,15 @@ namespace IO
             }
             catch (ArgumentException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch(DirectoryNotFoundException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
 
             try
@@ -44,15 +45,15 @@ namespace IO
             }
             catch (ArgumentException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (DirectoryNotFoundException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
         }
     }

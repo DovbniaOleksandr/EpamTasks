@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using Logger;
 using Microsoft.VisualBasic.CompilerServices;
+using NLog;
 using UI;
 
 namespace StructsTasks
 {
     public class StructsRunner:IRunner
     {
-        public ILoggerHelper _logger { get; private set; }
+        public ILogger _logger { get; private set; }
         public UserInterface _ui { get; private set; }
 
-        public StructsRunner(UserInterface ui, ILoggerHelper logger)
+        public StructsRunner(UserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
@@ -30,11 +31,11 @@ namespace StructsTasks
             }
             catch (ArgumentException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             GetRectangleData(out double x,out double y, out double height, out double width);
 
@@ -52,11 +53,11 @@ namespace StructsTasks
             }
             catch (ArgumentException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
         }
 

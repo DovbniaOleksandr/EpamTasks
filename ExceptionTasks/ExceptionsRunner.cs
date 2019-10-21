@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using Logger;
+using NLog;
 using UI;
 
 namespace ExceptionTasks
 {
     public class ExceptionsRunner:IRunner
     {
-        public ILoggerHelper _logger { get; }
+        public ILogger _logger { get; }
         public UserInterface _ui { get; private set; }
-        public ExceptionsRunner(UserInterface ui, ILoggerHelper logger)
+        public ExceptionsRunner(UserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
@@ -24,11 +25,11 @@ namespace ExceptionTasks
             }
             catch (StackOverflowException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
 
             try
@@ -37,11 +38,11 @@ namespace ExceptionTasks
             }
             catch (IndexOutOfRangeException e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
 
             try
@@ -51,16 +52,16 @@ namespace ExceptionTasks
             catch (ArgumentException e)
                 when(e.ParamName == "a")
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (ArgumentException e)
                 when (e.ParamName == "b")
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
             catch (Exception e)
             {
-                _logger.LogException(e);
+                _logger.Error(e.Message);
             }
         }
     }

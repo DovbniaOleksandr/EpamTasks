@@ -11,6 +11,11 @@ namespace SerializationTasks
         public Type type { get; set; }
         public string Source { get; set; }
 
+        public XMLSerialization(Type typeToSerialize, string source)
+        {
+            type = typeToSerialize;
+            Source = source;
+        }
         public object Deserialize()
         {
             XmlSerializer serializer = new XmlSerializer(type);

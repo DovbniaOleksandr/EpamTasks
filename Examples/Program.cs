@@ -12,13 +12,12 @@ namespace Examples
     {
         static void Main()
         {
-            //Runners runners = new Runners();
-            //foreach (var runner in runners)
-            //{
-            //    runner.Run();
-            //}
-            SerializationRunner runner = new SerializationRunner(new ConsoleUserInterface(), new MyLogger(new ConsoleBase(), new InfoDetalization()));
-            runner.Run();
+            Runners runners = new Runners();
+            foreach (var runner in runners)
+            {
+                runner.Run();
+            }
+            NLog.LogManager.Shutdown();
         }
     }
 }

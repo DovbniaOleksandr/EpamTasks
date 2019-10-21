@@ -10,6 +10,13 @@ namespace SerializationTasks
     {
         public string Source { get; set; }
         public Type type { get; set; }
+
+        public BinarySerialization(Type typeToSerialize, string source)
+        {
+            type = typeToSerialize;
+            Source = source;
+        }
+
         public object Deserialize()
         {
             BinaryFormatter formatter = new BinaryFormatter();

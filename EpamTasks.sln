@@ -13,9 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionTasks", "Exception
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IO", "IO\IO.csproj", "{3727CA5F-A797-4879-9AA3-AE47B0F66520}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomLogger", "Logger\CustomLogger.csproj", "{D6E1582A-F75F-4852-8CFC-0CB668EF1F34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationTasks", "SerializationTasks\SerializationTasks.csproj", "{3A2653D5-50F5-4905-9224-73F67C67373B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationTasks", "SerializationTasks\SerializationTasks.csproj", "{3A2653D5-50F5-4905-9224-73F67C67373B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D488279-407A-4ABA-8C6A-A8197811BF81}"
+	ProjectSection(SolutionItems) = preProject
+		app.config = app.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

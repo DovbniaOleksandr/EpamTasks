@@ -6,9 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NLog" Version="4.6.7" />
+    <PackageReference Include="NLog.Config" Version="4.6.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ExceptionTasks\ExceptionTasks.csproj" />
     <ProjectReference Include="..\IO\IO.csproj" />
-    <ProjectReference Include="..\Logger\Logger.csproj" />
     <ProjectReference Include="..\SerializationTasks\SerializationTasks.csproj" />
     <ProjectReference Include="..\StructsTasks\StructsTasks.csproj" />
     <ProjectReference Include="..\UI\UI.csproj" />

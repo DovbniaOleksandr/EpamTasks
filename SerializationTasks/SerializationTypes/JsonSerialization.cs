@@ -11,6 +11,12 @@ namespace SerializationTasks
         public Type type { get; set; }
         public string Source { get; set; }
 
+        public JsonSerialization(Type typeToSerialize, string source)
+        {
+            type = typeToSerialize;
+            Source = source;
+        }
+
         public object Deserialize()
         {
             JsonSerializer serializer = new JsonSerializer();

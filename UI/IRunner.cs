@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Logger;
+using NLog;
 
 namespace UI
 {
     public interface IRunner
     {
-        ILoggerHelper _logger { get; }
+        ILogger _logger { get; }
         UserInterface _ui { get; }
         void Run();
     }

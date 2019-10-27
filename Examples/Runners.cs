@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UI;
 using ExceptionTasks;
+using FilesInspector;
 using IO;
 using SerializationTasks;
 using StructsTasks;
@@ -21,6 +22,7 @@ namespace Examples
             yield return new ExceptionsRunner(new ConsoleUserInterface(), _logger);
             yield return new DirectoriesRunner(new ConsoleUserInterface(), _logger);
             yield return new SerializationRunner(new ConsoleUserInterface(), _logger);
+            yield return new FileInspectorRunner(_logger);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

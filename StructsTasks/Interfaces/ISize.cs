@@ -2,7 +2,7 @@
 {
     internal interface ISize
     {
-        public double Width { get; set; }
-        public double Height { get; set; }
+        double Width { get; set; }
+        double Height { get; set; }
     }
 }

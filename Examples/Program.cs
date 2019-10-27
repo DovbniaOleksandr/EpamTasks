@@ -2,6 +2,7 @@
 using  StructsTasks;
 using UI;
 using ExceptionTasks;
+using FilesInspector;
 using IO;
 using Logger;
 using SerializationTasks;

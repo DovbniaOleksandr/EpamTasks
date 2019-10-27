@@ -1,30 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Logger;
-using Microsoft.VisualBasic.CompilerServices;
 using NLog;
 using UI;
 
 namespace StructsTasks
 {
-    public class StructsRunner:IRunner
+    public class StructsRunner : IRunner
     {
-        public ILogger _logger { get; private set; }
-        public UserInterface _ui { get; private set; }
-
         public StructsRunner(UserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
         }
 
+        public ILogger _logger { get; }
+        public UserInterface _ui { get; }
+
         public void Run()
         {
-            GetPersonData(out string name, out string surname, out int age);
+            GetPersonData(out var name, out var surname, out var age);
             try
             {
-                var person = new Person() {Name = name, Surname = surname, Age = age};
+                var person = new Person {Name = name, Surname = surname, Age = age};
                 _ui.Write($"Enter the age to compare with {person.Name}:");
                 int.TryParse(_ui.Read(), out var comparativeAge);
                 _ui.Write($"{person.OlderThan(comparativeAge)}");
@@ -37,11 +33,12 @@ namespace StructsTasks
             {
                 _logger.Error(e.Message);
             }
-            GetRectangleData(out double x,out double y, out double height, out double width);
+
+            GetRectangleData(out var x, out var y, out var height, out var width);
 
             try
             {
-                var rectangle = new Rectangle()
+                var rectangle = new Rectangle
                 {
                     X = x,
                     Y = y,

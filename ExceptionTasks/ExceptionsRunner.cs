@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Logger;
 using NLog;
 using UI;
 
 namespace ExceptionTasks
 {
-    public class ExceptionsRunner:IRunner
+    public class ExceptionsRunner : IRunner
     {
-        public ILogger _logger { get; }
-        public UserInterface _ui { get; private set; }
         public ExceptionsRunner(UserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
         }
+
+        public ILogger _logger { get; }
+        public UserInterface _ui { get; }
 
         public void Run()
         {
@@ -34,7 +32,7 @@ namespace ExceptionTasks
 
             try
             {
-                MethodsWithExceptions.OutOfRangeMethod(new int[] { 1, 2, 4, 5, 6, 7 });
+                MethodsWithExceptions.OutOfRangeMethod(new[] {1, 2, 4, 5, 6, 7});
             }
             catch (IndexOutOfRangeException e)
             {
@@ -50,7 +48,7 @@ namespace ExceptionTasks
                 MethodsWithExceptions.DoSomeMath(-2, 15);
             }
             catch (ArgumentException e)
-                when(e.ParamName == "a")
+                when (e.ParamName == "a")
             {
                 _logger.Error(e.Message);
             }

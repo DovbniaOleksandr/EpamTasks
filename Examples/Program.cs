@@ -1,24 +1,14 @@
-﻿using System;
-using  StructsTasks;
-using UI;
-using ExceptionTasks;
-using FilesInspector;
-using IO;
-using Logger;
-using SerializationTasks;
+﻿using NLog;
 
 namespace Examples
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
-            Runners runners = new Runners();
-            foreach (var runner in runners)
-            {
-                runner.Run();
-            }
-            NLog.LogManager.Shutdown();
+            var runners = new Runners();
+            foreach (var runner in runners) runner.Run();
+            LogManager.Shutdown();
         }
     }
 }

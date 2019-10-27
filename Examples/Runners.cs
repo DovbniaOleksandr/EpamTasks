@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using UI;
 using ExceptionTasks;
 using FilesInspector;
 using IO;
+using NLog;
 using SerializationTasks;
 using StructsTasks;
-using NLog;
-
+using UI;
 
 namespace Examples
 {
-    class Runners:IEnumerable<IRunner>
+    internal class Runners : IEnumerable<IRunner>
     {
-        private NLog.Logger _logger = LogManager.GetCurrentClassLogger();
+        private static readonly NLog.Logger _logger = LogManager.GetCurrentClassLogger();
+
         public IEnumerator<IRunner> GetEnumerator()
         {
             yield return new StructsRunner(new ConsoleUserInterface(), _logger);
@@ -27,7 +25,7 @@ namespace Examples
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-           return GetEnumerator();
+            return GetEnumerator();
         }
     }
 }

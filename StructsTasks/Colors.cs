@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StructsTasks
 {
@@ -13,14 +11,15 @@ namespace StructsTasks
         White = 0,
         Black = 100
     }
+
     public static class Extensions
     {
         public static void ShowAllColors(this Colors colors)
         {
             var colorsValues = Enum.GetValues(colors.GetType());
             Array.Sort(colorsValues);
-            foreach(var color in colorsValues)
-                Console.WriteLine((Colors)color);
+            foreach (var color in colorsValues)
+                Console.WriteLine((Colors) color);
         }
     }
 }

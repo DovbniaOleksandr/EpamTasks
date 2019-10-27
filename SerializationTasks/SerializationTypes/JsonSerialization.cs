@@ -1,26 +1,24 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace SerializationTasks
 {
     public class JsonSerialization : ISerializationType
     {
-        public Type type { get; set; }
-        public string Source { get; set; }
-
         public JsonSerialization(Type typeToSerialize, string source)
         {
             type = typeToSerialize;
             Source = source;
         }
 
+        public Type type { get; set; }
+        public string Source { get; set; }
+
         public object Deserialize()
         {
-            JsonSerializer serializer = new JsonSerializer();
-            using (StreamReader sr = new StreamReader(Source))
+            var serializer = new JsonSerializer();
+            using (var sr = new StreamReader(Source))
             {
                 return serializer.Deserialize(sr, type);
             }
@@ -28,8 +26,8 @@ namespace SerializationTasks
 
         public void Serialize(object obj)
         {
-            JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter sw = new StreamWriter(Source))
+            var serializer = new JsonSerializer();
+            using (var sw = new StreamWriter(Source))
             {
                 serializer.Serialize(sw, obj);
             }

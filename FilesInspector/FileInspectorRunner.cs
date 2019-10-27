@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 using NLog;
 using UI;
@@ -9,23 +7,29 @@ using UI;
 namespace FilesInspector
 {
     public class FileInspectorRunner : IRunner
-
     {
-        public ILogger _logger { get; }
-        public UserInterface _ui { get; private set; }
+        private readonly IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", true, true).Build();
 
         public FileInspectorRunner(ILogger logger)
         {
             _logger = logger;
         }
 
+        public ILogger _logger { get; }
+        public UserInterface _ui { get; private set; }
+
         public void Run()
         {
-            CustomFileInspector fileInspector = new CustomFileInspector();
+            if(configuration["ui"] == "Console")
+                _ui = new ConsoleUserInterface();
+            var fileInspector = new CustomFileInspector();
             try
             {
                 _ui.Write("Duplicates:");
-                FileWriter.Write(fileInspector.GetDuplicateFiles("", ""), _ui);
+                FileWriter.Write(
+                    fileInspector.GetDuplicateFiles(configuration["directory1"], configuration["directory2"]), _ui);
             }
             catch (DirectoryNotFoundException e)
             {
@@ -48,7 +52,7 @@ namespace FilesInspector
             try
             {
                 _ui.Write("Unique:");
-                FileWriter.Write(fileInspector.GetUniqueFiles("", ""), _ui);
+                FileWriter.Write(fileInspector.GetUniqueFiles(configuration["directory1"], configuration["directory2"]), _ui);
             }
             catch (DirectoryNotFoundException e)
             {

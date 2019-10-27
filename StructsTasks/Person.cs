@@ -22,11 +22,11 @@ namespace StructsTasks
             get => _name;
             set
             {
-                if(value == null)
+                if (value == null)
                     throw new ArgumentNullException("Name is null");
-                if(value.Any(char.IsDigit))
+                if (value.Any(char.IsDigit))
                     throw new ArgumentException("Name shouldn't contain any number");
-                if (!String.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value))
                     _name = value;
                 else
                     throw new ArgumentException("Name length must be greater then 0");
@@ -42,7 +42,7 @@ namespace StructsTasks
                     throw new ArgumentNullException("Surname is null");
                 if (value.Any(char.IsDigit))
                     throw new ArgumentException("Surname shouldn't contain any number");
-                if (!String.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value))
                     _surname = value;
                 else
                     throw new ArgumentException("Surname length must be greater then 0");
@@ -60,6 +60,7 @@ namespace StructsTasks
                     throw new ArgumentException("Age must be positive number");
             }
         }
+
         public string OlderThan(int n)
         {
             if (n <= 0)

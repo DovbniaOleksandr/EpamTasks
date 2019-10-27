@@ -1,14 +1,11 @@
-﻿using Logger;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Text;
 using NLog;
 using UI;
 
 namespace IO
 {
-    public class DirectoriesRunner:IRunner
+    public class DirectoriesRunner : IRunner
     {
         public DirectoriesRunner(UserInterface ui, ILogger logger)
         {
@@ -16,21 +13,22 @@ namespace IO
             _ui = ui;
         }
 
-        public ILogger _logger { get; private set; }
+        public ILogger _logger { get; }
 
-        public UserInterface _ui { get; private set; }
+        public UserInterface _ui { get; }
 
         public void Run()
         {
             try
             {
-                DirectoryVisualizer.GetContentFromDirectory(@"D:\Vikings.(S02).1080p.NewStudio", new ConsoleUserInterface(), 0);
+                DirectoryVisualizer.GetContentFromDirectory(@"D:\Vikings.(S02).1080p.NewStudio",
+                    new ConsoleUserInterface(), 0);
             }
             catch (ArgumentException e)
             {
                 _logger.Error(e.Message);
             }
-            catch(DirectoryNotFoundException e)
+            catch (DirectoryNotFoundException e)
             {
                 _logger.Error(e.Message);
             }

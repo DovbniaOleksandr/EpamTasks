@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace StructsTasks
+﻿namespace StructsTasks
 {
-    enum Year
+    internal enum Year
     {
         January,
         February,

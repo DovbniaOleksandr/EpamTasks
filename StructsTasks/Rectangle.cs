@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StructsTasks
 {
@@ -27,7 +25,7 @@ namespace StructsTasks
             set
             {
                 if (value > 0)
-                   _height = value;
+                    _height = value;
                 else
                     throw new ArgumentException("Height must be positive number");
             }
@@ -36,6 +34,9 @@ namespace StructsTasks
         public double X { get; set; }
         public double Y { get; set; }
 
-        public double Perimeter() => Width * 2 + Height * 2;
+        public double Perimeter()
+        {
+            return Width * 2 + Height * 2;
+        }
     }
 }

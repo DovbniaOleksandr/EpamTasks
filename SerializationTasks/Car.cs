@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+
 namespace SerializationTasks
 {
     [DataContract]
     [Serializable]
     public class Car
     {
-        [DataMember]
-        [XmlElement]
-        public string Model { get; set; }
-        [DataMember]
-        [XmlElement]
-        public double Price { get; set; }
         public Car(string model, double price)
         {
             Model = model;
@@ -21,8 +16,12 @@ namespace SerializationTasks
 
         public Car()
         {
-            Model = String.Empty;
+            Model = string.Empty;
             Price = 0;
         }
+
+        [DataMember] [XmlElement] public string Model { get; set; }
+
+        [DataMember] [XmlElement] public double Price { get; set; }
     }
 }

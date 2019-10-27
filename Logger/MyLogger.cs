@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Logger
 {
-    public class MyLogger:ILoggerHelper
+    public class MyLogger : ILoggerHelper
     {
-        ILogBase logBase;
-        IDetalization detalization;
+        private readonly IDetalization detalization;
+        private readonly ILogBase logBase;
+
         public MyLogger(ILogBase logBase, IDetalization detalization)
         {
             this.logBase = logBase;
@@ -16,7 +15,7 @@ namespace Logger
 
         public void LogException(Exception e)
         {
-            string details = detalization.GetExceptionDetails(e);
+            var details = detalization.GetExceptionDetails(e);
             logBase.WriteMessage(details);
         }
 

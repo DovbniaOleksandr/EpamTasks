@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 
 namespace Logger
 {
     public class FileBase : ILogBase
     {
-        string src;
+        private readonly string src;
 
         public FileBase(string srcFileName)
         {
@@ -18,7 +15,7 @@ namespace Logger
 
         public void WriteMessage(string message)
         {
-            using (StreamWriter writer = File.AppendText(src))
+            using (var writer = File.AppendText(src))
             {
                 writer.WriteLine(message);
             }

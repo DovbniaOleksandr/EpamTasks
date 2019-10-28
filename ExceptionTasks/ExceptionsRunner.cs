@@ -6,14 +6,14 @@ namespace ExceptionTasks
 {
     public class ExceptionsRunner : IRunner
     {
-        public ExceptionsRunner(UserInterface ui, ILogger logger)
+        public ExceptionsRunner(IUserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
         }
 
         public ILogger _logger { get; }
-        public UserInterface _ui { get; }
+        public IUserInterface _ui { get; }
 
         public void Run()
         {

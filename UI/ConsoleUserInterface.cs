@@ -2,7 +2,7 @@
 
 namespace UI
 {
-    public class ConsoleUserInterface : UserInterface
+    public class ConsoleUserInterface : IUserInterface
     {
         public string Read()
         {

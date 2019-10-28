@@ -6,14 +6,14 @@ namespace StructsTasks
 {
     public class StructsRunner : IRunner
     {
-        public StructsRunner(UserInterface ui, ILogger logger)
+        public StructsRunner(IUserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
         }
 
         public ILogger _logger { get; }
-        public UserInterface _ui { get; }
+        public IUserInterface _ui { get; }
 
         public void Run()
         {

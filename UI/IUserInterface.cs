@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    public interface UserInterface
+    public interface IUserInterface
     {
         void Write(string str);
         string Read();

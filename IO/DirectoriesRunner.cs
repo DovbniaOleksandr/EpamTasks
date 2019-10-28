@@ -7,7 +7,7 @@ namespace IO
 {
     public class DirectoriesRunner : IRunner
     {
-        public DirectoriesRunner(UserInterface ui, ILogger logger)
+        public DirectoriesRunner(IUserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
@@ -15,13 +15,15 @@ namespace IO
 
         public ILogger _logger { get; }
 
-        public UserInterface _ui { get; }
+        public IUserInterface _ui { get; }
 
         public void Run()
         {
             try
             {
-                DirectoryVisualizer.GetContentFromDirectory(@"D:\Vikings.(S02).1080p.NewStudio",
+                _ui.Write("Input path to directory");
+                var dirPath = _ui.Read();
+                DirectoryVisualizer.GetContentFromDirectory(dirPath,
                     new ConsoleUserInterface(), 0);
             }
             catch (ArgumentException e)
@@ -39,7 +41,9 @@ namespace IO
 
             try
             {
-                DirectoryVisualizer.FindTxtFileByPartialName(@"D:\Matlab", "t", new ConsoleUserInterface());
+                _ui.Write("Input path to directory");
+                var dirPath = _ui.Read();
+                DirectoryVisualizer.FindTxtFileByPartialName(dirPath, "t", new ConsoleUserInterface());
             }
             catch (ArgumentException e)
             {

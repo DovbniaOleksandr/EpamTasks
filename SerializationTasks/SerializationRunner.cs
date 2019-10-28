@@ -7,7 +7,7 @@ namespace SerializationTasks
 {
     public class SerializationRunner : IRunner
     {
-        public SerializationRunner(UserInterface ui, ILogger logger)
+        public SerializationRunner(IUserInterface ui, ILogger logger)
         {
             _logger = logger;
             _ui = ui;
@@ -15,7 +15,7 @@ namespace SerializationTasks
 
         public ILogger _logger { get; }
 
-        public UserInterface _ui { get; }
+        public IUserInterface _ui { get; }
 
         public void Run()
         {

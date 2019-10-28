@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using NLog;
@@ -18,43 +19,27 @@ namespace FilesInspector
         }
 
         public ILogger _logger { get; }
-        public UserInterface _ui { get; private set; }
+        public IUserInterface _ui { get; private set; }
 
         public void Run()
         {
-            if(configuration["ui"] == "Console")
-                _ui = new ConsoleUserInterface();
+            var watch = Stopwatch.StartNew();
             var fileInspector = new CustomFileInspector();
             try
             {
+                if (configuration["ui"] == "Console")
+                    _ui = new ConsoleUserInterface();
+                if (configuration["ui"] == "Excel")
+                    _ui = new ExcelUserInterface(configuration["pathToExcelFile"], "files", 1, 1);
                 _ui.Write("Duplicates:");
                 FileWriter.Write(
                     fileInspector.GetDuplicateFiles(configuration["directory1"], configuration["directory2"]), _ui);
-            }
-            catch (DirectoryNotFoundException e)
-            {
-                _logger.Error(e.Message);
-            }
-            catch (ArgumentNullException e)
-            {
-                _logger.Error(e.Message);
-            }
-            catch (ArgumentException e)
-            {
-                _logger.Error(e.Message);
-            }
-
-            catch (Exception e)
-            {
-                _logger.Error(e.Message);
-            }
-
-            try
-            {
                 _ui.Write("Unique:");
-                FileWriter.Write(fileInspector.GetUniqueFiles(configuration["directory1"], configuration["directory2"]), _ui);
+                FileWriter.Write(fileInspector.GetUniqueFiles(configuration["directory1"], configuration["directory2"]),
+                    _ui);
+                _ui.Write("Total time to work with folders(in seconds) :" + Math.Round(watch.Elapsed.TotalSeconds, 5));
             }
-            catch (DirectoryNotFoundException e)
+            catch (IOException e)
             {
                 _logger.Error(e.Message);
             }
@@ -70,6 +55,10 @@ namespace FilesInspector
             catch (Exception e)
             {
                 _logger.Error(e.Message);
+            }
+            finally
+            {
+                watch.Stop();
             }
         }
     }

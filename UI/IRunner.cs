@@ -5,7 +5,7 @@ namespace UI
     public interface IRunner
     {
         ILogger _logger { get; }
-        UserInterface _ui { get; }
+        IUserInterface _ui { get; }
         void Run();
     }
 }

@@ -7,7 +7,7 @@ namespace IO
 {
     public static class DirectoryVisualizer
     {
-        public static void GetContentFromDirectory(string path, UserInterface ui, int tabs)
+        public static void GetContentFromDirectory(string path, IUserInterface ui, int tabs)
         {
             ValidateArguments(path);
             var dir = new DirectoryInfo(path);
@@ -18,7 +18,7 @@ namespace IO
                 GetContentFromDirectory(subDir.FullName, ui, tabs + 1);
         }
 
-        public static void FindTxtFileByPartialName(string path, string filename, UserInterface ui)
+        public static void FindTxtFileByPartialName(string path, string filename, IUserInterface ui)
         {
             ValidateArguments(path);
             var dir = new DirectoryInfo(path);

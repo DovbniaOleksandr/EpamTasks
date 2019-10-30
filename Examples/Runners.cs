@@ -21,6 +21,7 @@ namespace Examples
             yield return new DirectoriesRunner(new ConsoleUserInterface(), _logger);
             yield return new SerializationRunner(new ConsoleUserInterface(), _logger);
             yield return new FileInspectorRunner(_logger);
+            yield return new ExcelInspectorRunner(_logger);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

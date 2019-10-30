@@ -6,15 +6,15 @@ namespace FilesInspector
 {
     public static class FileWriter
     {
-        public static void Write(ICollection<string> Files, IUserInterface ui)
+        public static void Write(ICollection<string> FileNames, IUserInterface ui)
         {
-            if (Files.Count == 0)
-                throw new ArgumentException("Collection is empty", nameof(Files));
-            if (Files == null || ui == null)
+            if (FileNames.Count == 0)
+                throw new ArgumentException("Collection is empty", nameof(FileNames));
+            if (FileNames == null || ui == null)
                 throw new ArgumentNullException();
 
-            foreach (var f in Files) ui.Write(f);
-            ui.Write("Collection contains " + Files.Count + " files.");
+            foreach (var f in FileNames) ui.Write(f);
+            ui.Write("Collection contains " + FileNames.Count + " files.");
         }
     }
 }

@@ -20,6 +20,8 @@ namespace UI
                 throw new ArgumentException();
             if (!File.Exists(path))
                 throw new DirectoryNotFoundException();
+            if(rowIndex <= 0 || columnIndex <= 0)
+                throw new ArgumentException();
             this.path = path;
             this.sheetName = sheetName;
             this.rowIndex = rowIndex;
@@ -33,6 +35,8 @@ namespace UI
 
         public void Write(string str)
         {
+            if(String.IsNullOrEmpty(str))
+                throw new ArgumentException();
             using (var excelPack = new ExcelPackage(new FileInfo(path)))
             {
                 var ws = excelPack.Workbook.Worksheets[sheetName];

@@ -34,6 +34,7 @@ namespace FilesInspector
 
         public ICollection<string> GetUniqueFiles(string PathToOriginalData, string PathToComparableData)
         {
+            ValidateArguments(PathToOriginalData, PathToComparableData);
             HashSet<string> filesFromOriginalColumn = GetValues(PathToOriginalData, OriginalColumn);
             HashSet<string> filesFromComparableColumn = GetValues(PathToComparableData, ComparableColumn);
             filesFromOriginalColumn.SymmetricExceptWith(filesFromComparableColumn);
@@ -58,8 +59,19 @@ namespace FilesInspector
                     }
                 }
             }
-
             return filesSet;
+        }
+
+        private void ValidateArguments(string PathToOriginalData, string PathToComparableData)
+        {
+            if (string.IsNullOrEmpty(PathToOriginalData))
+                throw new ArgumentNullException(nameof(PathToOriginalData));
+            if (string.IsNullOrEmpty(PathToComparableData))
+                throw new ArgumentNullException(nameof(PathToComparableData));
+            if (!Directory.Exists(PathToOriginalData))
+                throw new DirectoryNotFoundException("Original data doesn't exist'");
+            if (!Directory.Exists(PathToComparableData))
+                throw new DirectoryNotFoundException("Comparable data 2 doesn't exist'");
         }
     }
 }

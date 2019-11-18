@@ -7,6 +7,7 @@ using NLog;
 using SerializationTasks;
 using StructsTasks;
 using UI;
+using CustomIoC;
 
 namespace Examples
 {
@@ -16,12 +17,13 @@ namespace Examples
 
         public IEnumerator<IRunner> GetEnumerator()
         {
-            yield return new StructsRunner(new ConsoleUserInterface(), _logger);
-            yield return new ExceptionsRunner(new ConsoleUserInterface(), _logger);
-            yield return new DirectoriesRunner(new ConsoleUserInterface(), _logger);
-            yield return new SerializationRunner(new ConsoleUserInterface(), _logger);
-            yield return new FileInspectorRunner(_logger);
-            yield return new ExcelInspectorRunner(_logger);
+            //yield return new StructsRunner(new ConsoleUserInterface(), _logger);
+            //yield return new ExceptionsRunner(new ConsoleUserInterface(), _logger);
+            //yield return new DirectoriesRunner(new ConsoleUserInterface(), _logger);
+            //yield return new SerializationRunner(new ConsoleUserInterface(), _logger);
+            //yield return new FileInspectorRunner(_logger);
+            //yield return new ExcelInspectorRunner(_logger);
+            yield return new IoCRunner(new ConsoleUserInterface(), _logger);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

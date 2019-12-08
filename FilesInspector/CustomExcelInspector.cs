@@ -44,6 +44,25 @@ namespace FilesInspector
         private HashSet<string> GetValues(string PathToData, int columnIndex)
         {
             HashSet<string> filesSet = new HashSet<string>();
+            if(PathToData == "OneDrive")
+            {
+                using (var excelPack = new ExcelPackage(OneDriveFiles.GetFileFromOneDriveAsync().Result))
+                {
+                    var ws = excelPack.Workbook.Worksheets[Sheet];
+                    if (ws == null)
+                        throw new ArgumentException("Sheet doesn't exist");
+                    for (int rowIndex = StartRowIndex; ; rowIndex++)
+                    {
+                        if (ws.Cells[rowIndex, columnIndex].Value == null)
+                            break;
+                        else
+                        {
+                            filesSet.Add(ws.Cells[rowIndex, columnIndex].Value.ToString());
+                        }
+                    }
+                }
+                return filesSet;
+            }
             using (var excelPack = new ExcelPackage(new FileInfo(PathToData)))
             {
                 var ws = excelPack.Workbook.Worksheets[Sheet];
